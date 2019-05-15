@@ -16,9 +16,9 @@
 
 package com.gu.scalatest
 
-import org.scalatest.{FunSuite, Matchers}
+import org.scalatest.{FunSuite, MustMatchers}
 
-class JsoupShouldMatchersTest extends FunSuite with Matchers with JsoupShouldMatchers {
+class JsoupShouldMatchersTest extends FunSuite with MustMatchers with JsoupShouldMatchers {
 
   test("withValue"){
     "<div><p>Hello, world!</p></div>".asBodyFragment should include element withName("p").and(withValue("Hello, world!"))
@@ -71,12 +71,12 @@ class JsoupShouldMatchersTest extends FunSuite with Matchers with JsoupShouldMat
   }
 
   test("selectors should have a readable toString") {
-    withName("foo").withClass("bar").toString should equal ("""with name "foo" with class "bar"""")
-    withClass("foo").or(withClass("bar")).toString should equal("""with class "foo" or (with class "bar")""")
+    withName("foo").withClass("bar").toString must equal ("""with name "foo" with class "bar"""")
+    withClass("foo").or(withClass("bar")).toString must equal("""with class "foo" or (with class "bar")""")
   }
 
   test("syntax should support boolean logic operators") {
-    (withName("foo") && withClass("bar") || withName("baz") && withClass("qux")).toString should
+    (withName("foo") && withClass("bar") || withName("baz") && withClass("qux")).toString must
       equal ("""with name "foo" with class "bar" or (with name "baz" with class "qux")""")
   }
 

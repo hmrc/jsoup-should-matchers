@@ -18,11 +18,11 @@ package com.gu.scalatest
 
 import com.gu.jsoup.{ElementSelector, ElementSelectorBuilders, Select}
 import org.jsoup.nodes.Element
-import org.scalatest.Matchers
+import org.scalatest.MustMatchers
 import org.scalatest.exceptions.TestFailedException
 import org.scalatest.words.{IncludeWord, NotWord}
 
-trait JsoupShouldMatchers extends Matchers with ElementSelectorBuilders with ElementWords {
+trait JsoupShouldMatchers extends MustMatchers with ElementSelectorBuilders with ElementWords {
 
   import org.jsoup.Jsoup.parseBodyFragment
 
