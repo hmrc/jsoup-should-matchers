@@ -11,13 +11,4 @@ lazy val simpleReactiveMongo = Project(nameApp, file("."))
     crossScalaVersions := Seq("2.11.12", "2.12.6"),
     makePublicallyAvailableOnBintray := true,
     majorVersion := 0
-  ).settings(scoverageSettings)
-
-lazy val scoverageSettings: Seq[Setting[_]] = Seq(
-  coverageEnabled := true,
-  coverageExcludedPackages := List("<empty>").mkString(";"),
-  coverageMinimum := 42, // TODO raise coverage
-  coverageFailOnMinimum := true,
-  coverageHighlighting := true,
-  parallelExecution in Test := false
-)
+  )
